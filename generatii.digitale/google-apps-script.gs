@@ -2,6 +2,12 @@ const SHEET_NAME = "Solicitari Oferta";
 
 function doPost(e) {
   try {
+    if (e.parameter.website) {
+      return ContentService
+        .createTextOutput("Spam blocked")
+        .setMimeType(ContentService.MimeType.TEXT);
+    }
+
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
 
     if (!sheet) {

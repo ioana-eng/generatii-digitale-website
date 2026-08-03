@@ -179,9 +179,10 @@
   .team-role { font-size: 13px; color: var(--primary); font-weight: 600; margin-bottom: 8px; }
   .team-bio { font-size: 12px; color: var(--text-light); line-height: 1.5; }
   .footer { background: var(--white); color: var(--text); padding: 48px 24px; margin-top: 60px; border-top: 1px solid var(--border); }
-  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
   .footer-inner > div:nth-child(2),
-  .footer-inner > div:nth-child(3) { justify-self: end; }
+  .footer-inner > div:nth-child(3),
+  .footer-inner > div:nth-child(4) { justify-self: end; }
   .footer-brand { font-weight: 800; font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
   .footer-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
   .footer-title { font-weight: 700; font-size: 14px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); }
@@ -349,16 +350,7 @@ html { scroll-behavior: smooth; }
       <li><a href="pachete.html">Pachete</a></li>
       <li><a href="impact.html" class="active">Impact</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li class="lang-switcher skiptranslate mobile-only" aria-label="Selector limbă">
-        <a href="#" class="active" onclick="setLanguage('ro'); return false;" aria-label="Română">RO</a>
-        <a href="#" onclick="setLanguage('en'); return false;" aria-label="English">EN</a>
-      </li>
-
     </ul>
-    <div class="lang-switcher skiptranslate desktop-only" aria-label="Selector limbă">
-      <a href="#" class="active" onclick="setLanguage('ro'); return false;" aria-label="Română">RO</a>
-      <a href="#" onclick="setLanguage('en'); return false;" aria-label="English">EN</a>
-    </div>
 
     <button class="quote-btn" data-program="" data-source="Header">Solicită ofertă</button>
     <button class="nav-toggle" onclick="toggleMenu()" aria-label="Deschide meniul">☰</button>
@@ -468,9 +460,18 @@ html { scroll-behavior: smooth; }
         <li><a href="https://www.facebook.com/share/14jkeP8qrXJ/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
       </ul>
     </div>
+    <div class="footer-right">
+      <div class="footer-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="#">Politica GDPR</a></li>
+        <li><a href="#">Politica de confidențialitate</a></li>
+        <li><a href="#">Politica de cookies</a></li>
+      </ul>
+    </div>
   </div>
   <div style="max-width:1200px; margin:40px auto 0; padding-top:24px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:var(--text-light);">
-    © 2026 Generații Digitale. Toate drepturile rezervate.
+    © 2026 Generații Digitale. Toate drepturile rezervate.<br><br>
+    Powered by BuildWithIF
   </div>
 </footer>
 
