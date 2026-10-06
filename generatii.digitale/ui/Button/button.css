@@ -1,0 +1,120 @@
+/* ==========================================
+   BuildWithIF UI - Button Component
+   Version: 1.0
+========================================== */
+
+.bw-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+
+    min-height: 44px;
+    padding: 0 var(--space-5);
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+
+    cursor: pointer;
+    transition: all var(--transition-fast);
+
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* ==========================
+   Variants
+========================== */
+
+.bw-btn--primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.bw-btn--primary:hover {
+    background: var(--color-primary-hover);
+}
+
+.bw-btn--secondary {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+.bw-btn--secondary:hover {
+    background: #f8fafc;
+}
+
+.bw-btn--success {
+    background: var(--color-success);
+    color: #fff;
+}
+
+.bw-btn--danger {
+    background: var(--color-danger);
+    color: #fff;
+}
+
+.bw-btn--ghost {
+    background: transparent;
+    color: var(--color-primary);
+}
+
+/* ==========================
+   Sizes
+========================== */
+
+.bw-btn--sm {
+    min-height: 36px;
+    padding: 0 var(--space-4);
+    font-size: var(--font-size-xs);
+}
+
+.bw-btn--md {
+    min-height: 44px;
+}
+
+.bw-btn--lg {
+    min-height: 52px;
+    padding: 0 var(--space-6);
+    font-size: var(--font-size-md);
+}
+
+/* ==========================
+   Width
+========================== */
+
+.bw-btn--full {
+    width: 100%;
+}
+
+/* ==========================
+   Disabled
+========================== */
+
+.bw-btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* ==========================
+   Loading
+========================== */
+
+.bw-btn--loading {
+    pointer-events: none;
+    opacity: .8;
+}
+
+/* ==========================
+   Focus
+========================== */
+
+.bw-btn:focus-visible {
+    outline: 3px solid rgba(37,99,235,.25);
+    outline-offset: 2px;
+}

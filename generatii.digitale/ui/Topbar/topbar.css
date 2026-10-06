@@ -1,0 +1,24 @@
+/* ==========================================
+   BuildWithIF UI - Topbar Component
+   Version: 1.0
+========================================== */
+
+.bw-topbar__title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+.bw-topbar__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-left: auto;
+}
+
+.bw-topbar__user {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+}

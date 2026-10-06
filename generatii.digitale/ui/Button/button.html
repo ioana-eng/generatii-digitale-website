@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildWithIF UI - Button</title>
+
+    <link rel="stylesheet" href="../../assets/css/tokens.css">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="button.css">
+
+    <style>
+        body {
+            padding: 48px;
+            background: var(--color-bg);
+        }
+
+        .preview-section {
+            max-width: 1200px;
+            margin: 0 auto 48px;
+        }
+
+        .preview-section h2 {
+            margin-bottom: 24px;
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .component-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 32px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==========================================
+     BuildWithIF UI - Button Component
+========================================== -->
+
+<section class="preview-section">
+    <h2>Variants</h2>
+    <div class="component-preview">
+        <button class="bw-btn bw-btn--primary">Primary</button>
+        <button class="bw-btn bw-btn--secondary">Secondary</button>
+        <button class="bw-btn bw-btn--success">Success</button>
+        <button class="bw-btn bw-btn--danger">Danger</button>
+        <button class="bw-btn bw-btn--ghost">Ghost</button>
+    </div>
+</section>
+
+<section class="preview-section">
+    <h2>Sizes</h2>
+    <div class="component-preview">
+        <button class="bw-btn bw-btn--primary bw-btn--sm">Small</button>
+        <button class="bw-btn bw-btn--primary bw-btn--md">Medium</button>
+        <button class="bw-btn bw-btn--primary bw-btn--lg">Large</button>
+    </div>
+</section>
+
+<section class="preview-section">
+    <h2>States</h2>
+    <div class="component-preview">
+        <button class="bw-btn bw-btn--primary bw-btn--full">Full Width</button>
+        <button class="bw-btn bw-btn--primary" disabled>Disabled</button>
+        <button class="bw-btn bw-btn--primary bw-btn--loading">Loading...</button>
+    </div>
+</section>
+
+</body>
+</html>

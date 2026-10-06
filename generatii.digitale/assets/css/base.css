@@ -1,0 +1,86 @@
+/* ==========================================
+   BuildWithIF CMS - Base Styles
+========================================== */
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root */
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: var(--font-family);
+
+    font-size: var(--font-size-md);
+
+    color: var(--color-text);
+
+    background: var(--color-bg);
+
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+
+}
+
+/* Images */
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Links */
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+/* Buttons */
+
+button {
+
+    font: inherit;
+
+    cursor: pointer;
+
+    border: none;
+
+    background: none;
+
+}
+
+/* Inputs */
+
+input,
+textarea,
+select {
+
+    font: inherit;
+
+}
+
+/* Lists */
+
+ul,
+ol {
+
+    list-style: none;
+
+}

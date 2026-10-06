@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildWithIF CMS - Login</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../ui/Button/button.css">
+    <link rel="stylesheet" href="../ui/Input/input.css">
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: var(--space-4);
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            padding: var(--space-10);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+        }
+
+        .login-card h1 {
+            text-align: center;
+            margin-bottom: var(--space-6);
+            font-size: var(--font-size-2xl);
+        }
+
+        .login-card__error {
+            margin-top: var(--space-4);
+            color: var(--color-danger);
+            text-align: center;
+            font-size: var(--font-size-sm);
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-card">
+    <h1>BuildWithIF CMS</h1>
+
+    <div class="bw-field">
+        <label class="bw-label" for="email">Email</label>
+        <input class="bw-input" id="email" type="email" placeholder="email@example.com">
+    </div>
+
+    <div class="bw-field">
+        <label class="bw-label" for="password">Parolă</label>
+        <input class="bw-input" id="password" type="password" placeholder="••••••••">
+    </div>
+
+    <button class="bw-btn bw-btn--primary bw-btn--full" id="login-btn">
+        Autentificare
+    </button>
+
+    <p class="login-card__error" id="error"></p>
+</div>
+
+<!-- Config -->
+<script src="../config/project.js"></script>
+
+<!-- Core -->
+<script src="../core/supabase.js"></script>
+<script src="../core/auth.js"></script>
+
+<script>
+    document.getElementById("login-btn").addEventListener("click", async () => {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const errorEl = document.getElementById("error");
+
+        errorEl.textContent = "";
+
+        try {
+            await login(email, password);
+            window.location.href = "index.html";
+        } catch (err) {
+            errorEl.textContent = err.message || "Autentificare eșuată.";
+        }
+    });
+</script>
+
+</body>
+</html>

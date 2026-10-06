@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildWithIF CMS - Table Engine Demo</title>
+    <link rel="stylesheet" href="../../assets/css/tokens.css">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../ui/Button/button.css">
+    <link rel="stylesheet" href="../../ui/Input/input.css">
+    <link rel="stylesheet" href="../../ui/Select/select.css">
+    <link rel="stylesheet" href="../../ui/Modal/modal.css">
+    <link rel="stylesheet" href="../../ui/Toast/toast.css">
+    <link rel="stylesheet" href="../../ui/EmptyState/EmptyState.css">
+    <link rel="stylesheet" href="table.css">
+    <style>
+        body { padding: 2rem; background: var(--color-bg); }
+        .demo-header { margin-bottom: var(--space-xl); }
+        .demo-header h1 { margin-bottom: var(--space-sm); }
+    </style>
+</head>
+<body>
+    <div class="demo-header">
+        <h1>Table Engine Demo</h1>
+        <p>Demo local cu date mock. In productie, tabelul se conecteaza automat la Supabase.</p>
+    </div>
+
+    <div id="demo-table"></div>
+
+    <!-- Mock Supabase pentru demo -->
+    <script>
+        window.createClient = () => ({
+            from: () => ({
+                select: () => ({
+                    order: () => ({
+                        range: () => ({
+                            ilike: () => ({
+                                or: () => Promise.resolve({ data: [], error: null })
+                            })
+                        })
+                    })
+                })
+            })
+        });
+    </script>
+
+    <script src="../../config/project.js"></script>
+    <script src="../../core/supabase.js"></script>
+    <script src="../../core/helpers.js"></script>
+    <script src="../../core/database.js"></script>
+    <script src="../../ui/Button/button.js"></script>
+    <script src="../../ui/Input/input.js"></script>
+    <script src="../../ui/Select/select.js"></script>
+    <script src="../../ui/Modal/modal.js"></script>
+    <script src="../../ui/Toast/toast.js"></script>
+    <script src="../../ui/EmptyState/EmptyState.js"></script>
+    <script src="ColumnFormatters.js"></script>
+    <script src="TableActions.js"></script>
+    <script src="DataAdapter.js"></script>
+    <script src="BWTable.js"></script>
+
+    <script>
+        // Demo: suprascrie BWDatabase.query pentru a folosi date locale
+        const demoData = Array.from({ length: 35 }, (_, i) => ({
+            id: i + 1,
+            title: `Workshop ${i + 1}`,
+            age_group: i % 2 === 0 ? "6-10 ani" : "11-15 ani",
+            price: 120 + i * 5,
+            is_active: i % 3 !== 0,
+            status: i % 4 === 0 ? "draft" : "active",
+            tags: ["creativ", "educativ"].slice(0, i % 3),
+            created_at: new Date(Date.now() - i * 86400000).toISOString()
+        }));
+
+        BWDatabase.query = async (table, options = {}) => {
+            const page = options.page || 1;
+            const pageSize = options.pageSize || 10;
+            let data = [...demoData];
+
+            if (options.search && options.searchColumns) {
+                const term = options.search.toLowerCase();
+                data = data.filter(row =>
+                    options.searchColumns.some(col =>
+                        String(row[col] || "").toLowerCase().includes(term)
+                    )
+                );
+            }
+
+            if (options.filters) {
+                Object.entries(options.filters).forEach(([field, value]) => {
+                    if (value === undefined || value === null || value === "") return;
+                    data = data.filter(row => row[field] === value);
+                });
+            }
+
+            if (options.sort) {
+                const { column, ascending } = options.sort;
+                data.sort((a, b) => {
+                    const av = a[column] ?? "";
+                    const bv = b[column] ?? "";
+                    if (av < bv) return ascending ? -1 : 1;
+                    if (av > bv) return ascending ? 1 : -1;
+                    return 0;
+                });
+            }
+
+            const count = data.length;
+            const totalPages = Math.ceil(count / pageSize);
+            const start = (page - 1) * pageSize;
+            const end = start + pageSize;
+
+            return {
+                data: data.slice(start, end),
+                count,
+                page,
+                pageSize,
+                totalPages
+            };
+        };
+
+        BWDatabase.delete = async (table, id) => {
+            const idx = demoData.findIndex(r => r.id === id);
+            if (idx > -1) demoData.splice(idx, 1);
+            return { data: null, error: null };
+        };
+
+        new BWTable({
+            container: "#demo-table",
+            title: "Workshop-uri Demo",
+            table: "workshops",
+            columns: [
+                { field: "title", label: "Titlu", type: "text", width: "30%" },
+                { field: "age_group", label: "Grupa varsta", type: "text" },
+                { field: "price", label: "Pret", type: "money", currency: "RON" },
+                { field: "is_active", label: "Activ", type: "boolean" },
+                { field: "status", label: "Status", type: "badge", colorMap: { active: "success", draft: "neutral" } },
+                { field: "tags", label: "Taguri", type: "tags" },
+                { field: "created_at", label: "Creat la", type: "date" }
+            ],
+            filters: [
+                {
+                    field: "status",
+                    type: "select",
+                    label: "Status",
+                    options: [
+                        { value: "active", label: "Activ" },
+                        { value: "draft", label: "Draft" }
+                    ]
+                }
+            ],
+            onEdit: (row) => alert(`Edit: ${row.title}`),
+            onRowClick: (row) => console.log("Click row:", row)
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+/* ==========================================
+   BuildWithIF CMS Form Engine
+   Form Styles
+========================================== */
+
+.bw-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.bw-form--layout-two-column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+}
+
+.bw-form__field {
+    display: flex;
+    flex-direction: column;
+}
+
+.bw-form__field--hidden {
+    display: none;
+}
+
+.bw-form__control {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.bw-form__label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.bw-form__label--required::after {
+    content: " *";
+    color: var(--color-danger);
+}
+
+.bw-form__help-text {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+.bw-form__error-text {
+    font-size: var(--font-size-xs);
+    color: var(--color-danger);
+    margin: 0;
+    min-height: 1.2em;
+}
+
+.bw-form__field--error .bw-input,
+.bw-form__field--error .bw-textarea,
+.bw-form__field--error .bw-select {
+    border-color: var(--color-danger);
+}
+
+.bw-form__actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.bw-form__section {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin: 0;
+}
+
+.bw-form__section-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    padding: 0 var(--space-2);
+}
+
+/* Checkbox */
+.bw-form__checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    cursor: pointer;
+}
+
+.bw-form__checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Toggle */
+.bw-form__toggle-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    cursor: pointer;
+}
+
+.bw-form__toggle-label input {
+    display: none;
+}
+
+.bw-form__toggle-slider {
+    width: 44px;
+    height: 24px;
+    background: #cbd5e1;
+    border-radius: 999px;
+    position: relative;
+    transition: background var(--transition-fast);
+}
+
+.bw-form__toggle-slider::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+}
+
+.bw-form__toggle-label input:checked + .bw-form__toggle-slider {
+    background: var(--color-primary);
+}
+
+.bw-form__toggle-label input:checked + .bw-form__toggle-slider::after {
+    transform: translateX(20px);
+}
+
+/* Radio */
+.bw-form__radio-legend {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-2);
+}
+
+.bw-form__radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.bw-form__radio-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+}
+
+/* Multiselect */
+.bw-form__multiselect {
+    width: 100%;
+    min-height: 120px;
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+}
+
+/* Upload */
+.bw-form__upload-zone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    padding: var(--space-5);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    background: #f8fafc;
+    color: var(--color-text-light);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.bw-form__upload-zone:hover,
+.bw-form__upload-zone--active {
+    border-color: var(--color-primary);
+    background: #eff6ff;
+}
+
+.bw-form__image-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    margin-top: var(--space-3);
+    border-radius: var(--radius-md);
+}
+
+.bw-form__file-name {
+    margin-top: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+}
+
+/* Color */
+.bw-form__color-input {
+    width: 60px;
+    height: 44px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+/* Slug */
+.bw-form__slug-input {
+    font-family: monospace;
+}

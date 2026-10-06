@@ -1,0 +1,59 @@
+/* ==========================================
+   BuildWithIF UI - Modal Component
+   Version: 1.0
+========================================== */
+
+.bw-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(15, 23, 42, 0.5);
+    padding: var(--space-4);
+}
+
+.bw-modal {
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-modal);
+}
+
+.bw-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-5) var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.bw-modal__title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.bw-modal__close {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-light);
+    cursor: pointer;
+}
+
+.bw-modal__body {
+    padding: var(--space-6);
+}
+
+.bw-modal__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    border-top: 1px solid var(--color-border);
+}

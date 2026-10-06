@@ -1,0 +1,47 @@
+/* ==========================================
+   BuildWithIF UI - Sidebar Component
+   Version: 1.0
+========================================== */
+
+.bw-sidebar__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+.bw-sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.bw-sidebar__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+
+    border-radius: var(--radius-md);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.bw-sidebar__item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.bw-sidebar__item--active {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}

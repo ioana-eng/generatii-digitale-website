@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BWForm Example</title>
+
+    <link rel="stylesheet" href="../../assets/css/tokens.css">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../ui/Button/button.css">
+    <link rel="stylesheet" href="../../ui/Input/input.css">
+    <link rel="stylesheet" href="../../ui/Select/select.css">
+    <link rel="stylesheet" href="../../ui/Textarea/textarea.css">
+    <link rel="stylesheet" href="../../ui/Toast/toast.css">
+    <link rel="stylesheet" href="form.css">
+
+    <style>
+        body {
+            padding: 48px;
+            background: var(--color-bg);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>BWForm Example</h1>
+    <div id="form-root"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../../config/project.js"></script>
+<script src="../../core/supabase.js"></script>
+<script src="../../core/database.js"></script>
+<script src="../../core/storage.js"></script>
+<script src="../../core/helpers.js"></script>
+<script src="../../ui/Button/button.js"></script>
+<script src="../../ui/Input/input.js"></script>
+<script src="../../ui/Select/select.js"></script>
+<script src="../../ui/Textarea/textarea.js"></script>
+<script src="../../ui/Toast/toast.js"></script>
+
+<script src="Validator.js"></script>
+<script src="Layout.js"></script>
+<script src="Renderers.js"></script>
+<script src="BWForm.js"></script>
+
+<script>
+    const form = new BWForm({
+        table: "workshops",
+        layout: "two-column",
+        fields: [
+            { name: "title", type: "text", label: "Workshop Title", required: true, section: "Basic" },
+            { name: "slug", type: "slug", source: "title", label: "Slug", section: "Basic" },
+            { name: "description", type: "textarea", label: "Description", rows: 4, section: "Basic", width: 2 },
+            { name: "price", type: "number", label: "Price", min: 0, section: "Details" },
+            { name: "seats", type: "number", label: "Available Seats", min: 1, section: "Details" },
+            { name: "level", type: "select", label: "Level", section: "Details", options: ["Beginner", "Intermediate", "Advanced"] },
+            { name: "is_active", type: "toggle", label: "Active", section: "Details" },
+            { name: "is_featured", type: "checkbox", label: "Featured", section: "Details" },
+            { name: "schedule", type: "radio", label: "Schedule", section: "Details", options: ["Morning", "Afternoon", "Evening"] },
+            { name: "tags", type: "multiselect", label: "Tags", section: "Details", options: ["Art", "Tech", "Kids"] },
+            { name: "start_date", type: "date", label: "Start Date", section: "Details" },
+            { name: "color", type: "color", label: "Brand Color", section: "Details" }
+        ],
+        onSuccess(record) {
+            console.log("Saved:", record);
+            BWToast.success("Form submitted successfully!");
+        },
+        onError(error) {
+            console.error(error);
+            BWToast.error(error.message);
+        }
+    });
+
+    document.getElementById("form-root").appendChild(form.render());
+</script>
+
+</body>
+</html>

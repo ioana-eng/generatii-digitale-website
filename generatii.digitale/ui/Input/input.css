@@ -1,0 +1,63 @@
+/* ==========================================
+   BuildWithIF UI - Input Component
+   Version: 1.0
+========================================== */
+
+.bw-input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 var(--space-4);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    background: var(--color-surface);
+
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.bw-input::placeholder {
+    color: var(--color-text-light);
+}
+
+.bw-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.bw-input:disabled {
+    background: #f1f5f9;
+    cursor: not-allowed;
+}
+
+.bw-input--error {
+    border-color: var(--color-danger);
+}
+
+.bw-label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.bw-field {
+    margin-bottom: var(--space-4);
+}
+
+.bw-help-text {
+    margin-top: var(--space-1);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-light);
+}
+
+.bw-error-text {
+    margin-top: var(--space-1);
+    font-size: var(--font-size-xs);
+    color: var(--color-danger);
+}

@@ -1,0 +1,61 @@
+.playground{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:48px;
+
+}
+
+.playground-header{
+
+    margin-bottom:48px;
+
+}
+
+.playground-header h1{
+
+    font-size:36px;
+
+    margin-bottom:8px;
+
+}
+
+.playground-header p{
+
+    color:var(--color-text-light);
+
+}
+
+.playground-section{
+
+    margin-bottom:64px;
+
+}
+
+.playground-section h2{
+
+    margin-bottom:24px;
+
+}
+
+.component-preview{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+    padding:32px;
+
+    background:var(--color-surface);
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-card);
+
+}

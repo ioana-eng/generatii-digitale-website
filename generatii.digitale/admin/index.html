@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildWithIF CMS</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Config -->
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+
+    <!-- UI Components -->
+    <link rel="stylesheet" href="../ui/Button/button.css">
+    <link rel="stylesheet" href="../ui/Card/card.css">
+    <link rel="stylesheet" href="../ui/Input/input.css">
+    <link rel="stylesheet" href="../ui/Select/select.css">
+    <link rel="stylesheet" href="../ui/Textarea/textarea.css">
+    <link rel="stylesheet" href="../ui/Modal/modal.css">
+    <link rel="stylesheet" href="../ui/Table/table.css">
+    <link rel="stylesheet" href="../ui/Toast/toast.css">
+    <link rel="stylesheet" href="../ui/Loader/Loader.css">
+    <link rel="stylesheet" href="../ui/Sidebar/sidebar.css">
+    <link rel="stylesheet" href="../ui/Topbar/topbar.css">
+    <link rel="stylesheet" href="../ui/EmptyState/EmptyState.css">
+    <link rel="stylesheet" href="../core/form/form.css">
+    <link rel="stylesheet" href="../core/table/table.css">
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="bw-admin">
+    <aside class="bw-sidebar" id="sidebar">
+        <div class="bw-sidebar__brand" id="sidebar-brand">BuildWithIF CMS</div>
+        <nav class="bw-sidebar__nav" id="sidebar-menu"></nav>
+    </aside>
+
+    <main class="bw-main">
+        <header class="bw-topbar" id="topbar">
+            <h1 class="bw-topbar__title" id="page-title">Dashboard</h1>
+            <div class="bw-topbar__actions">
+                <button class="bw-btn bw-btn--ghost" id="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <section class="bw-content" id="content">
+            Se încarcă...
+        </section>
+    </main>
+</div>
+
+<!-- Config -->
+<script src="../config/project.js"></script>
+<script src="../config/modules.js"></script>
+<script src="../config/permissions.js"></script>
+<script src="../config/i18n.js"></script>
+
+<!-- Core -->
+<script src="../core/supabase.js"></script>
+<script src="../core/auth.js"></script>
+<script src="../core/database.js"></script>
+<script src="../core/storage.js"></script>
+<script src="../core/permissions.js"></script>
+<script src="../core/router.js"></script>
+<script src="../core/eventBus.js"></script>
+<script src="../core/i18n.js"></script>
+<script src="../core/errorHandler.js"></script>
+<script src="../core/moduleLoader.js"></script>
+<script src="../core/helpers.js"></script>
+<script src="../core/form/Validator.js"></script>
+<script src="../core/form/Layout.js"></script>
+<script src="../core/form/Renderers.js"></script>
+<script src="../core/form/BWForm.js"></script>
+
+<!-- Table Engine -->
+<script src="../core/table/ColumnFormatters.js"></script>
+<script src="../core/table/TableActions.js"></script>
+<script src="../core/table/DataAdapter.js"></script>
+<script src="../core/table/BWTable.js"></script>
+
+<!-- UI Components -->
+<script src="../ui/Button/button.js"></script>
+<script src="../ui/Card/card.js"></script>
+<script src="../ui/Input/input.js"></script>
+<script src="../ui/Select/select.js"></script>
+<script src="../ui/Textarea/textarea.js"></script>
+<script src="../ui/Modal/modal.js"></script>
+<script src="../ui/Table/table.js"></script>
+<script src="../ui/Toast/toast.js"></script>
+<script src="../ui/Loader/Loader.js"></script>
+<script src="../ui/Sidebar/sidebar.js"></script>
+<script src="../ui/Topbar/topbar.js"></script>
+<script src="../ui/EmptyState/EmptyState.js"></script>
+
+<!-- Admin App -->
+<script src="admin.js"></script>
+
+</body>
+</html>

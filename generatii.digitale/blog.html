@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articole — Generații Digitale</title>
+<link rel="icon" type="image/png" href="assets/logo-short.png">
+<link rel="apple-touch-icon" href="assets/logo-short.png">
+<meta name="description" content="Articole și resurse despre educație digitală, gândire critică, discernământ digital și obiceiuri sănătoase online.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://www.generatiidigitale.ro/blog.html">
+<link rel="alternate" hreflang="ro-ro" href="https://www.generatiidigitale.ro/blog.html">
+<link rel="alternate" hreflang="en-us" href="https://www.generatiidigitale.ro/en/blog.html">
+<link rel="alternate" hreflang="x-default" href="https://www.generatiidigitale.ro/blog.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta property="og:title" content="Articole — Generații Digitale">
+<meta property="og:description" content="Articole și resurse despre educație digitală, gândire critică, discernământ digital și obiceiuri sănătoase online.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.generatiidigitale.ro/blog.html">
+<meta property="og:image" content="https://www.generatiidigitale.ro/assets/hero-landing.jpg">
+<meta property="og:image:alt" content="Generații Digitale — educație digitală pentru toate vârstele">
+<meta property="og:locale" content="ro_RO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Articole — Generații Digitale">
+<meta name="twitter:description" content="Articole și resurse despre educație digitală, gândire critică, discernământ digital și obiceiuri sănătoase online.">
+<meta name="twitter:image" content="https://www.generatiidigitale.ro/assets/hero-landing.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Generații Digitale",
+  "url": "https://www.generatiidigitale.ro/",
+  "logo": "https://www.generatiidigitale.ro/assets/logo.png",
+  "sameAs": [
+    "https://www.linkedin.com/company/genera%C8%9Bii-digitale/",
+    "https://www.instagram.com/generatii.digitale",
+    "https://www.facebook.com/share/14jkeP8qrXJ/"
+  ],
+  "description": "Programe de educație digitală pentru școli, elevi, părinți, profesori și companii."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Generații Digitale",
+  "url": "https://www.generatiidigitale.ro/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.generatiidigitale.ro/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<style>
+
+  :root {
+    --primary: #4F46E5;
+    --primary-light: #6366F1;
+    --primary-dark: #4338CA;
+    --accent: #FBBF24;
+    --accent-light: #FCD34D;
+    --text: #1F2937;
+    --text-light: #6B7280;
+    --bg: #F8FAFC;
+    --white: #FFFFFF;
+    --border: #E5E7EB;
+    --success: #10B981;
+    --warning: #F59E0B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  .nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 0 24px; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; color: inherit; }
+.logo-img { height: 40px; width: auto; display: block; }
+.logo-img-footer { height: 32px; width: auto; display: block; }
+  .logo-icon { width: 32px; height: 32px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 14px; transition: color 0.2s; cursor: pointer; }
+  .nav-links a:hover { color: var(--primary); }
+.nav-links a.active { color: var(--primary); font-weight: 600; }
+.nav-toggle { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
+  .quote-btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+  .quote-btn:hover { background: var(--primary-dark); }
+  .page-tabs { position: fixed; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); z-index: 999; padding: 0 24px; overflow-x: auto; }
+  .tabs-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 4px; padding: 8px 0; }
+  .tab-btn { padding: 8px 16px; border: 1px solid var(--border); background: var(--white); border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--text-light); cursor: pointer; white-space: nowrap; transition: all 0.2s; font-family: inherit; }
+  .tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+  .tab-btn:hover:not(.active) { background: var(--bg); color: var(--text); }
+  .content { margin-top: 88px; padding: 0 24px 60px; }
+  .page { max-width: 1200px; margin: 0 auto; display: none; }
+  .page.active { display: block; }
+  .section-label { display: inline-block; background: var(--accent); color: var(--text); padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+  .wireframe-box { background: var(--white); border: 2px dashed var(--border); border-radius: 12px; padding: 32px; margin-bottom: 24px; position: relative; }
+  .wireframe-box.solid { border-style: solid; border-color: var(--primary-light); background: linear-gradient(135deg, rgba(79,70,229,0.03) 0%, rgba(255,255,255,1) 100%); }
+  .wireframe-box.accent { border-color: var(--accent); background: linear-gradient(135deg, rgba(251,191,36,0.08) 0%, rgba(255,255,255,1) 100%); }
+  .wireframe-box.dark { background: var(--text); border-color: var(--text); color: white; }
+  .placeholder-img { background: linear-gradient(135deg, #E5E7EB 0%, #D1D5DB 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 13px; font-weight: 500; }
+  .placeholder-img.round { border-radius: 50%; }
+  .btn-placeholder { display: inline-block; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; }
+  .btn-primary { background: var(--primary); color: white; }
+  .btn-secondary { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+  .btn-accent { background: var(--accent); color: var(--text); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all 0.2s; }
+  .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .card-icon { width: 48px; height: 48px; background: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; margin-bottom: 16px; }
+  .card-title { font-weight: 700; font-size: 16px; margin-bottom: 8px; }
+  .card-desc { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+  .hero { min-height: 500px; display: flex; align-items: center; gap: 48px; }
+  .hero-content { flex: 1; }
+  .hero-visual { flex: 1; }
+  .hero h1 { font-size: 48px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.02em; }
+  .hero h1 span { color: var(--primary); position: relative; }
+  .hero-tagline { font-size: 18px; color: var(--text-light); margin-bottom: 32px; line-height: 1.6; }
+  .hero-cta-group { display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+  .pillar-card { background: var(--white); border-radius: 16px; padding: 32px; text-align: center; border: 2px solid transparent; transition: all 0.3s; }
+  .pillar-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(79,70,229,0.12); }
+  .pillar-icon { width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 28px; }
+  .pillar-title { font-weight: 700; font-size: 18px; margin-bottom: 10px; }
+  .pillar-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+  .program-track { background: var(--white); border-radius: 16px; border: 2px solid var(--border); padding: 28px; margin-bottom: 16px; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 24px; align-items: center; transition: all 0.2s; }
+  .program-track:hover { border-color: var(--primary); box-shadow: 0 4px 16px rgba(79,70,229,0.08); }
+  .program-track.highlight { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(79,70,229,0.15); background: linear-gradient(135deg, rgba(79,70,229,0.03) 0%, rgba(255,255,255,1) 100%); }
+  .program-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+  .badge-junior { background: #DBEAFE; color: #1E40AF; }
+  .badge-teen { background: #FEF3C7; color: #92400E; }
+  .badge-adult { background: #D1FAE5; color: #065F46; }
+  .badge-student { background: #EDE9FE; color: #5B21B6; }
+  .badge-uni { background: #FCE7F3; color: #9D174D; }
+  .badge-corp { background: #E0E7FF; color: #3730A3; }
+  .program-name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .program-meta { font-size: 13px; color: var(--text-light); }
+  .program-format { font-size: 13px; color: var(--text); }
+  .program-cta { text-align: right; }
+  .btn-small { padding: 8px 18px; font-size: 12px; border-radius: 6px; font-weight: 600; cursor: pointer; border: none; font-family: inherit; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+  .pricing-card { background: var(--white); border: 2px solid var(--border); border-radius: 16px; padding: 32px; position: relative; }
+  .pricing-card.featured { border-color: var(--primary); box-shadow: 0 8px 30px rgba(79,70,229,0.12); transform: scale(1.02); }
+  .pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--text); padding: 6px 16px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+  .pricing-title { font-weight: 700; font-size: 20px; margin-bottom: 8px; }
+  .pricing-subtitle { font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
+  .pricing-features { list-style: none; margin-bottom: 24px; }
+  .pricing-features li { padding: 8px 0; font-size: 13px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .pricing-features li::before { content: "✓"; color: var(--success); font-weight: 700; }
+  .pricing-features li.missing::before { content: "—"; color: var(--text-light); }
+  .pricing-features li.missing { color: var(--text-light); text-decoration: line-through; }
+  .method-steps { display: flex; gap: 16px; margin-top: 24px; overflow-x: auto; padding-bottom: 16px; }
+  .method-step { min-width: 180px; background: var(--white); border: 2px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; position: relative; }
+  .method-step::after { content: "→"; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: var(--primary); font-size: 20px; font-weight: 700; }
+  .method-step:last-child::after { display: none; }
+  .step-number { width: 40px; height: 40px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 12px; }
+  .step-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  .step-desc { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+  .impact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 24px; }
+  .impact-card { background: var(--white); border-radius: 12px; padding: 24px; border-left: 4px solid var(--primary); }
+  .impact-card:nth-child(2) { border-left-color: var(--accent); }
+  .impact-card:nth-child(3) { border-left-color: var(--success); }
+  .impact-card:nth-child(4) { border-left-color: var(--warning); }
+  .impact-title { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+  .impact-desc { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .form-group { margin-bottom: 20px; }
+  .form-label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .form-input, .form-select, .form-textarea { width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; }
+  .form-textarea { min-height: 120px; resize: vertical; }
+  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 24px; }
+  .team-card { text-align: center; }
+  .team-photo { width: 120px; height: 120px; background: linear-gradient(135deg, #E5E7EB, #D1D5DB); border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 12px; }
+.team-photo-img { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 16px; display: block; object-fit: cover; object-position: top; }
+  .team-name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .team-role { font-size: 13px; color: var(--primary); font-weight: 600; margin-bottom: 8px; }
+  .team-bio { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+  .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: all 0.2s; }
+  .blog-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-2px); border-color: var(--primary-light); }
+  .blog-card__cover { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: linear-gradient(135deg, #E5E7EB 0%, #D1D5DB 100%); }
+  .blog-card__body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .blog-card__meta { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--text-light); }
+  .blog-card__category { background: #EDE9FE; color: #5B21B6; padding: 3px 10px; border-radius: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .blog-card__title { font-size: 17px; font-weight: 700; line-height: 1.35; }
+  .blog-card__excerpt { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+  .blog-card__more { margin-top: auto; padding-top: 8px; font-size: 13px; font-weight: 600; color: var(--primary); }
+  .blog-skeleton { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+  .blog-skeleton__card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .blog-skeleton__img { aspect-ratio: 16/9; }
+  .blog-skeleton__line { height: 14px; border-radius: 6px; margin: 12px 20px; }
+  .blog-skeleton__line--title { height: 18px; width: 70%; }
+  .blog-skeleton__line:last-child { margin-bottom: 20px; }
+  .blog-skeleton__img, .blog-skeleton__line { background: linear-gradient(90deg, #E5E7EB 25%, #F1F5F9 50%, #E5E7EB 75%); background-size: 200% 100%; animation: blog-shimmer 1.4s infinite; }
+  @keyframes blog-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+  .blog-status { text-align: center; padding: 64px 24px; background: var(--white); border: 2px dashed var(--border); border-radius: 12px; color: var(--text-light); font-size: 15px; line-height: 1.6; }
+  .blog-status__icon { font-size: 40px; margin-bottom: 12px; }
+  .blog-post { max-width: 800px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .blog-post__cover { width: 100%; display: block; }
+  .blog-post__body { padding: 32px; }
+  .blog-post__title { font-size: 32px; font-weight: 800; line-height: 1.2; margin-bottom: 12px; letter-spacing: -0.02em; }
+  .blog-post__meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-light); margin-bottom: 8px; }
+  .blog-post__content { font-size: 15px; line-height: 1.8; color: var(--text); white-space: pre-wrap; margin-top: 16px; }
+  .blog-back { display: inline-block; margin-bottom: 20px; font-size: 14px; font-weight: 600; color: var(--primary); text-decoration: none; }
+  .blog-back:hover { color: var(--primary-dark); }
+  .footer { background: var(--white); color: var(--text); padding: 48px 24px; margin-top: 60px; border-top: 1px solid var(--border); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+  .footer-inner > div:nth-child(2),
+  .footer-inner > div:nth-child(3),
+  .footer-inner > div:nth-child(4) { justify-self: end; }
+  .footer-brand { font-weight: 800; font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .footer-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+  .footer-title { font-weight: 700; font-size: 14px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { color: var(--text-light); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--primary); }
+  .footer-right { justify-self: end; text-align: left; }
+  .section-header { text-align: center; margin-bottom: 40px; padding-top: 40px; }
+  .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+  .section-header p { font-size: 16px; color: var(--text-light); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+  .problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 24px; }
+  .problem-card { background: var(--white); border-radius: 12px; padding: 28px; border: 1px solid var(--border); }
+  .problem-card h4 { font-weight: 700; font-size: 16px; margin-bottom: 10px; color: var(--primary); }
+  .problem-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+  .calc-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border-radius: 16px; padding: 32px; }
+  .calc-box h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+  .calc-row { display: flex; gap: 16px; margin-bottom: 16px; }
+  .calc-result { background: rgba(255,255,255,0.15); border-radius: 12px; padding: 20px; text-align: center; margin-top: 20px; }
+  .calc-result-number { font-size: 36px; font-weight: 800; }
+  .quiz-card { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 16px; padding: 32px; display: flex; align-items: center; gap: 32px; }
+  .quiz-icon { width: 80px; height: 80px; background: var(--accent); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; flex-shrink: 0; }
+  .quiz-content h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+  .quiz-content p { font-size: 14px; color: var(--text-light); margin-bottom: 16px; }
+  .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+  .benefit-card { background: var(--white); border-radius: 16px; padding: 32px; border: 2px solid var(--border); }
+  .benefit-card h4 { font-weight: 700; font-size: 18px; margin-bottom: 16px; color: var(--primary); }
+  .benefit-card ul { list-style: none; font-size: 14px; line-height: 2; color: var(--text-light); }
+  .benefit-card ul li::before { content: "→ "; color: var(--primary); font-weight: 700; }
+  .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s; }
+  .faq-item:hover { border-color: var(--primary); }
+  .faq-question { font-weight: 600; font-size: 15px; display: flex; justify-content: space-between; align-items: center; }
+  .faq-answer { font-size: 14px; color: var(--text-light); margin-top: 12px; line-height: 1.6; padding-top: 12px; border-top: 1px solid var(--border); }
+  .download-card { background: var(--white); border: 2px solid var(--border); border-radius: 12px; padding: 24px; display: flex; align-items: center; gap: 20px; margin-bottom: 16px; }
+  .download-icon { width: 56px; height: 56px; background: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; flex-shrink: 0; }
+  .download-info h4 { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .download-info p { font-size: 13px; color: var(--text-light); }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4, .grid-5, .pillars-grid, .pricing-grid, .team-grid, .impact-grid, .problem-grid, .contact-layout, .benefit-grid { grid-template-columns: 1fr; }
+    .hero { flex-direction: column; }
+    .hero h1 { font-size: 32px; }
+    .program-track { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: rgba(255,255,255,0.98); flex-direction: column; padding: 16px 24px; border-bottom: 1px solid var(--border); gap: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 8px 0; }
+    .nav-toggle { display: block; }
+    .quiz-card { flex-direction: column; text-align: center; }
+    .method-steps { flex-direction: column; }
+    .method-step::after { display: none; }
+    .blog-grid, .blog-skeleton { grid-template-columns: 1fr; }
+    .blog-post__title { font-size: 26px; }
+    .blog-post__body { padding: 24px 20px; }
+  }
+
+.program-detail-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1999;
+}
+.program-detail-backdrop.active {
+  display: block;
+}
+.program-detail {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 700px;
+  width: calc(100% - 48px);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  z-index: 2000;
+}
+.program-detail.active {
+  display: block;
+}
+.program-detail h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--primary);
+}
+.program-detail p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.program-detail ul {
+  list-style: none;
+  margin-bottom: 24px;
+}
+.program-detail li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border);
+}
+.program-detail li::before {
+  content: "✓";
+  color: var(--success);
+  font-weight: 700;
+  margin-right: 8px;
+}
+.program-detail-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-light);
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+.program-detail-close:hover {
+  color: var(--primary);
+  background: var(--bg);
+}
+
+html { scroll-behavior: smooth; }
+.section-header h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+
+
+  .lang-switcher { display: flex; align-items: center; gap: 4px; }
+  .lang-switcher a { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 30px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; font-weight: 700; color: var(--text); text-decoration: none; transition: all 0.2s; cursor: pointer; }
+  .lang-switcher a:hover { border-color: var(--primary); color: var(--primary); }
+  .lang-switcher a.active { background: var(--primary); color: white; border-color: var(--primary); }
+  .lang-switcher.desktop-only { margin-left: 12px; }
+  .lang-switcher.mobile-only { display: none; margin-top: 12px; list-style: none; padding: 0; }
+  @media (max-width: 768px) {
+    .lang-switcher.desktop-only { display: none; }
+    .lang-switcher.mobile-only { display: flex; }
+  }
+</style>
+</head>
+
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Generații Digitale - Acasă"><img src="assets/logo.png" alt="Generații Digitale" class="logo-img"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="despre.html">Despre</a></li>
+      <li><a href="de-ce-gen-d.html">De ce Gen.D?</a></li>
+      <li><a href="programe.html">Programe</a></li>
+      <li><a href="metodologie.html">Metodologie</a></li>
+      <li><a href="pachete.html">Pachete</a></li>
+      <li><a href="impact.html">Impact</a></li>
+      <li><a href="blog.html" class="active">Articole</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <button class="quote-btn" data-program="" data-source="Header">Solicită ofertă</button>
+    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Deschide meniul">☰</button>
+  </div>
+</nav>
+
+<div class="content">
+<!-- ==================== BLOG PAGE ==================== -->
+<div class="page active" id="blog">
+  <div class="section-header">
+    <h1>Articole</h1>
+    <p>Articole despre educație digitală, gândire critică și obiceiuri sănătoase online.</p>
+  </div>
+  <div id="blog-root"></div>
+</div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand"><img src="assets/logo-short.png" alt="Generații Digitale" class="logo-img-footer"></div>
+      <div class="footer-desc">Program educațional pentru utilizarea mediului digital cu responsabilitate, gândire critică și discernământ. Pregătim generații care gândesc clar în eră digitală.</div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-title">Programe</div>
+      <ul class="footer-links">
+        <li><a href="programe.html#program-junior">GEN.D Junior</a></li>
+        <li><a href="programe.html#program-teen">GEN.D Teen</a></li>
+        <li><a href="programe.html#program-adult">GEN.D Adult-Coach</a></li>
+        <li><a href="programe.html#program-students">GEN.D Students</a></li>
+        <li><a href="programe.html#program-adult">GEN.D Adult-Coach</a></li>
+        <li><a href="programe.html#program-university">GEN.D University</a></li>
+        <li><a href="programe.html#program-corporate">GEN.D Corporate</a></li>
+      </ul>
+    </div>
+    <div class="footer-right">
+      <div class="footer-title">Companie</div>
+      <ul class="footer-links">
+        <li><a href="despre.html">Despre Noi</a></li>
+        <li><a href="de-ce-gen-d.html">De ce Gen.D?</a></li>
+        <li><a href="https://www.linkedin.com/company/genera%C8%9Bii-digitale/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/generatii.digitale?igsh=MW9jeXZhNmtyMTM2ag==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/14jkeP8qrXJ/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+      </ul>
+    </div>
+    <div class="footer-right">
+      <div class="footer-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="#">Politica GDPR</a></li>
+        <li><a href="#">Politica de confidențialitate</a></li>
+        <li><a href="#">Politica de cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="max-width:1200px; margin:40px auto 0; padding-top:24px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:var(--text-light);">
+    © 2026 Generații Digitale. Toate drepturile rezervate.<br><br>
+    Powered by BuildWithIF
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('nav-links');
+  if (menu) menu.classList.toggle('open');
+}
+</script>
+
+<div id="google_translate_element" style="display:none;"></div>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'ro',
+    includedLanguages: 'ro,en',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+function setLanguage(lang) {
+  document.querySelectorAll('.lang-switcher a').forEach(function(a) {
+    a.classList.remove('active');
+    if ((lang === 'ro' && a.textContent.trim() === 'RO') || (lang === 'en' && a.textContent.trim() === 'EN')) {
+      a.classList.add('active');
+    }
+  });
+  if (lang === 'ro') {
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + location.hostname;
+    window.location.reload();
+  } else if (lang === 'en') {
+    var select = document.querySelector('#google_translate_element select');
+    var trigger = function() {
+      if (select) {
+        select.value = 'en';
+        select.dispatchEvent(new Event('change'));
+      }
+    };
+    if (select) {
+      trigger();
+    } else {
+      var interval = setInterval(function() {
+        select = document.querySelector('#google_translate_element select');
+        if (select) { clearInterval(interval); trigger(); }
+      }, 200);
+      setTimeout(function() { clearInterval(interval); }, 5000);
+    }
+  }
+}
+(function() {
+  function updateActiveLang() {
+    var lang = 'ro';
+    if (document.cookie.indexOf('googtrans=/ro/en') !== -1 || document.cookie.indexOf('googtrans=ro|en') !== -1) { lang = 'en'; }
+    document.querySelectorAll('.lang-switcher a').forEach(function(a) {
+      a.classList.remove('active');
+      if ((lang === 'ro' && a.textContent.trim() === 'RO') || (lang === 'en' && a.textContent.trim() === 'EN')) { a.classList.add('active'); }
+    });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', updateActiveLang); } else { updateActiveLang(); }
+})();
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var buttons = document.querySelectorAll(".quote-btn");
+    buttons.forEach(function(button) {
+      button.addEventListener("click", function() {
+        var selectedProgram = this.dataset.program;
+        var selectedSource = this.dataset.source;
+        if (selectedProgram) { sessionStorage.setItem("selectedProgram", selectedProgram); } else { sessionStorage.removeItem("selectedProgram"); }
+        if (selectedSource) { sessionStorage.setItem("selectedSource", selectedSource); }
+        window.location.href = "contact.html";
+      });
+    });
+    if (document.getElementById("contact-program") && document.getElementById("source")) {
+      var savedProgram = sessionStorage.getItem("selectedProgram");
+      var savedSource = sessionStorage.getItem("selectedSource");
+      if (savedProgram) {
+        const program = document.getElementById("contact-program");
+        var matched = false;
+        for (var i = 0; i < program.options.length; i++) {
+          if (program.options[i].value === savedProgram || program.options[i].text.indexOf(savedProgram) === 0) {
+            program.selectedIndex = i;
+            matched = true;
+            break;
+          }
+        }
+        if (!matched) program.selectedIndex = 0;
+      }
+      if (savedSource) { document.getElementById("source").value = savedSource; }
+      if (savedProgram || savedSource) {
+        var contactSection = document.getElementById("contact");
+        if (contactSection) contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      sessionStorage.removeItem("selectedProgram");
+      sessionStorage.removeItem("selectedSource");
+    }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config/project.js"></script>
+<script>
+(function () {
+  var root = document.getElementById("blog-root");
+  var project = window.BW_PROJECT || {};
+  var tables = project.tables || {};
+  var storage = project.storage || {};
+  var slug = new URLSearchParams(window.location.search).get("slug");
+
+  function postsTable() { return tables.blogPosts || "blog_posts"; }
+  function imagesBucket() { return storage.images || "images"; }
+
+  function escapeHtml(text) {
+    if (text === null || text === undefined) return "";
+    return String(text)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function formatDate(value) {
+    if (!value) return "";
+    var date = new Date(value);
+    if (isNaN(date.getTime())) return "";
+    return date.toLocaleDateString("ro-RO", { day: "numeric", month: "long", year: "numeric" });
+  }
+
+  function coverUrl(path) {
+    if (!path) return "";
+    var base = (project.supabaseUrl || "").replace(/\/+$/, "");
+    return base + "/storage/v1/object/public/" + imagesBucket() + "/" + path;
+  }
+
+  function showSkeleton(count) {
+    var cards = "";
+    for (var i = 0; i < (count || 6); i++) {
+      cards += '<div class="blog-skeleton__card"><div class="blog-skeleton__img"></div>' +
+        '<div class="blog-skeleton__line blog-skeleton__line--title"></div>' +
+        '<div class="blog-skeleton__line"></div>' +
+        '<div class="blog-skeleton__line"></div></div>';
+    }
+    root.innerHTML = '<div class="blog-skeleton">' + cards + '</div>';
+  }
+
+  function showStatus(icon, message) {
+    root.innerHTML = '<div class="blog-status"><div class="blog-status__icon">' + icon + '</div><p>' + message + '</p></div>';
+  }
+
+  function showEmpty(message) { showStatus("📝", message); }
+  function showError(message) { showStatus("⚠️", message); }
+
+  function categoryName(post) {
+    var category = post.blog_categories;
+    if (category && category.name) return category.name;
+    if (Array.isArray(category) && category.length && category[0].name) return category[0].name;
+    return "";
+  }
+
+  function renderCategoryBadge(post) {
+    var name = categoryName(post);
+    return name ? '<span class="blog-card__category">' + escapeHtml(name) + '</span>' : "";
+  }
+
+  function renderList(posts) {
+    if (!posts || posts.length === 0) {
+      showEmpty("Niciun articol publicat încă.");
+      return;
+    }
+    var cards = posts.map(function (post) {
+      var url = coverUrl(post.cover_image);
+      var date = formatDate(post.published_at || post.created_at);
+      return '' +
+        '<a class="blog-card" href="blog.html?slug=' + encodeURIComponent(post.slug) + '">' +
+          (url ? '<img class="blog-card__cover" src="' + escapeHtml(url) + '" alt="' + escapeHtml(post.title) + '" loading="lazy">' : '<div class="blog-card__cover"></div>') +
+          '<div class="blog-card__body">' +
+            '<div class="blog-card__meta">' + renderCategoryBadge(post) + (date ? '<span>' + date + '</span>' : '') + '</div>' +
+            '<div class="blog-card__title">' + escapeHtml(post.title) + '</div>' +
+            (post.excerpt ? '<div class="blog-card__excerpt">' + escapeHtml(post.excerpt) + '</div>' : '') +
+            '<div class="blog-card__more">Citește articolul →</div>' +
+          '</div>' +
+        '</a>';
+    }).join("");
+    root.innerHTML = '<div class="blog-grid">' + cards + '</div>';
+  }
+
+  function renderPost(post) {
+    document.title = post.title + " — Generații Digitale";
+    var url = coverUrl(post.cover_image);
+    var date = formatDate(post.published_at || post.created_at);
+    root.innerHTML =
+      '<a class="blog-back" href="blog.html">← Înapoi la blog</a>' +
+      '<article class="blog-post">' +
+        (url ? '<img class="blog-post__cover" src="' + escapeHtml(url) + '" alt="' + escapeHtml(post.title) + '">' : '') +
+        '<div class="blog-post__body">' +
+          '<h2 class="blog-post__title">' + escapeHtml(post.title) + '</h2>' +
+          '<div class="blog-post__meta">' + renderCategoryBadge(post) + (date ? '<span>' + date + '</span>' : '') + '</div>' +
+          '<div class="blog-post__content">' + escapeHtml(post.content || "") + '</div>' +
+        '</div>' +
+      '</article>';
+  }
+
+  function init() {
+    if (!project.supabaseUrl || !project.supabaseAnonKey) {
+      console.warn("[blog] Supabase nu este configurat. Completează supabaseUrl și supabaseAnonKey în config/project.js pentru a afișa articolele.");
+      showEmpty("Niciun articol publicat încă.");
+      return;
+    }
+    if (typeof window.supabase === "undefined" || !window.supabase.createClient) {
+      console.warn("[blog] Biblioteca supabase-js nu s-a încărcat. Verifică accesul la cdn.jsdelivr.net.");
+      showError("Nu am putut încărca articolele. Te rugăm să revii mai târziu.");
+      return;
+    }
+
+    var client = window.supabase.createClient(project.supabaseUrl, project.supabaseAnonKey);
+
+    if (slug) {
+      showSkeleton(1);
+      client
+        .from(postsTable())
+        .select("*, blog_categories(name)")
+        .eq("slug", slug)
+        .eq("status", "published")
+        .single()
+        .then(function (result) {
+          if (result.error || !result.data) {
+            showEmpty("Articolul căutat nu există sau nu este publicat.");
+            return;
+          }
+          renderPost(result.data);
+        })
+        .catch(function (error) {
+          console.error("[blog] Eroare la încărcarea articolului:", error);
+          showError("Nu am putut încărca articolul. Te rugăm să revii mai târziu.");
+        });
+    } else {
+      showSkeleton(6);
+      client
+        .from(postsTable())
+        .select("id, title, slug, excerpt, cover_image, published_at, created_at, blog_categories(name)")
+        .eq("status", "published")
+        .order("published_at", { ascending: false })
+        .then(function (result) {
+          if (result.error) throw result.error;
+          renderList(result.data);
+        })
+        .catch(function (error) {
+          console.error("[blog] Eroare la încărcarea articolelor:", error);
+          showError("Nu am putut încărca articolele. Te rugăm să revii mai târziu.");
+        });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

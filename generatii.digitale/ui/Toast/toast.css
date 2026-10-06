@@ -1,0 +1,45 @@
+/* ==========================================
+   BuildWithIF UI - Toast Component
+   Version: 1.0
+========================================== */
+
+.bw-toast-container {
+    position: fixed;
+    top: var(--space-5);
+    right: var(--space-5);
+    z-index: 1100;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.bw-toast {
+    min-width: 280px;
+    max-width: 400px;
+    padding: var(--space-4) var(--space-5);
+
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-modal);
+
+    font-size: var(--font-size-sm);
+    color: #fff;
+
+    animation: bw-toast-in 0.25s ease;
+}
+
+.bw-toast--success { background: var(--color-success); }
+.bw-toast--error { background: var(--color-danger); }
+.bw-toast--warning { background: var(--color-warning); }
+.bw-toast--info { background: var(--color-primary); }
+
+@keyframes bw-toast-in {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

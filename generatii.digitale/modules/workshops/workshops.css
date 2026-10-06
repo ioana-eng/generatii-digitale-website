@@ -1,0 +1,10 @@
+.module-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-6);
+}
+
+.error {
+    color: var(--color-danger);
+}
