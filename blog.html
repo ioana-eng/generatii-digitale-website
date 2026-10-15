@@ -202,6 +202,7 @@
   .blog-post__cover { width: 100%; display: block; }
   .blog-post__body { padding: 32px; }
   .blog-post__title { font-size: 32px; font-weight: 800; line-height: 1.2; margin-bottom: 12px; letter-spacing: -0.02em; }
+  .blog-post__subtitle { font-size: 19px; font-weight: 500; color: var(--text-light); line-height: 1.4; margin: -4px 0 12px; }
   .blog-post__meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-light); margin-bottom: 8px; }
   .blog-post__content { font-size: 15px; line-height: 1.8; color: var(--text); white-space: pre-wrap; margin-top: 16px; }
   .blog-back { display: inline-block; margin-bottom: 20px; font-size: 14px; font-weight: 600; color: var(--primary); text-decoration: none; }
@@ -630,16 +631,31 @@ function setLanguage(lang) {
   }
 
   function renderPost(post) {
-    document.title = post.title + " — Generații Digitale";
+    document.title = (post.meta_title || post.title) + " — Generații Digitale";
+
+    var metaDesc = post.meta_description || post.excerpt;
+    if (metaDesc) {
+      var metaTag = document.querySelector('meta[name="description"]');
+      if (!metaTag) {
+        metaTag = document.createElement("meta");
+        metaTag.setAttribute("name", "description");
+        document.head.appendChild(metaTag);
+      }
+      metaTag.setAttribute("content", metaDesc);
+    }
+
     var url = coverUrl(post.cover_image);
     var date = formatDate(post.published_at || post.created_at);
+    var authorHtml = post.author ? '<span>de ' + escapeHtml(post.author) + '</span>' : "";
+    var subtitleHtml = post.subtitle ? '<p class="blog-post__subtitle">' + escapeHtml(post.subtitle) + '</p>' : "";
     root.innerHTML =
       '<a class="blog-back" href="blog.html">← Înapoi la blog</a>' +
       '<article class="blog-post">' +
         (url ? '<img class="blog-post__cover" src="' + escapeHtml(url) + '" alt="' + escapeHtml(post.title) + '">' : '') +
         '<div class="blog-post__body">' +
           '<h2 class="blog-post__title">' + escapeHtml(post.title) + '</h2>' +
-          '<div class="blog-post__meta">' + renderCategoryBadge(post) + (date ? '<span>' + date + '</span>' : '') + '</div>' +
+          subtitleHtml +
+          '<div class="blog-post__meta">' + renderCategoryBadge(post) + authorHtml + (date ? '<span>' + date + '</span>' : '') + '</div>' +
           '<div class="blog-post__content">' + escapeHtml(post.content || "") + '</div>' +
         '</div>' +
       '</article>';

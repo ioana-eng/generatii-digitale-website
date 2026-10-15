@@ -101,7 +101,17 @@ const BWFormRenderers = {
         return {
             element: wrapper,
             getValue: () => input.value,
-            setValue: (value) => { input.value = value || (type === "color" ? "#000000" : ""); },
+            setValue: (value) => {
+                if (type === "datetime" && value) {
+                    const d = new Date(value);
+                    if (!isNaN(d.getTime())) {
+                        const pad = (n) => String(n).padStart(2, "0");
+                        input.value = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+                        return;
+                    }
+                }
+                input.value = value || (type === "color" ? "#000000" : "");
+            },
             validate: (value) => BWFormValidator.validateField(value, field),
             showError: (msg) => { errorText.textContent = msg; wrapper.classList.add("bw-form__field--error"); },
             clearError: () => { errorText.textContent = ""; wrapper.classList.remove("bw-form__field--error"); },

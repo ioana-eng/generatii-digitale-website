@@ -54,6 +54,13 @@ const BWBlog = {
                 section: "Continut"
             },
             {
+                name: "subtitle",
+                type: "text",
+                label: "Subtitlu",
+                placeholder: "Subtitlul articolului (optional)",
+                section: "Continut"
+            },
+            {
                 name: "slug",
                 type: "slug",
                 source: "title",
@@ -66,6 +73,13 @@ const BWBlog = {
                 label: "Categorie",
                 placeholder: "Alege categoria",
                 options: this.getCategoryOptions(categories),
+                section: "Continut"
+            },
+            {
+                name: "author",
+                type: "text",
+                label: "Autor",
+                placeholder: "Numele autorului afisat public",
                 section: "Continut"
             },
             {
@@ -96,11 +110,34 @@ const BWBlog = {
             {
                 name: "status",
                 type: "select",
-                label: "Status",
+                label: "Vizibilitate",
                 required: true,
                 options: this.getStatusOptions(),
                 value: "draft",
                 section: "Publicare"
+            },
+            {
+                name: "published_at",
+                type: "datetime",
+                label: "Data postarii",
+                helpText: "Lasati gol pentru a fi setata automat la publicare.",
+                section: "Publicare"
+            },
+            {
+                name: "meta_title",
+                type: "text",
+                label: "Meta titlu",
+                placeholder: "Titlul afisat in motoarele de cautare (optional)",
+                section: "SEO"
+            },
+            {
+                name: "meta_description",
+                type: "textarea",
+                label: "Meta descriere",
+                rows: 2,
+                placeholder: "Descrierea afisata in motoarele de cautare (optional)",
+                section: "SEO",
+                width: 2
             }
         ];
     },
@@ -274,10 +311,11 @@ async function renderBlogPosts(view) {
         title: "",
         table: BWBlog.postsTable(),
         columns: [
-            { field: "title", label: "Titlu", type: "text", width: "35%" },
+            { field: "title", label: "Titlu", type: "text", width: "30%" },
+            { field: "author", label: "Autor", type: "text" },
             { field: "category_id", label: "Categorie", type: "blogCategory" },
-            { field: "status", label: "Status", type: "enum", options: { draft: "Ciorna", published: "Publicat" } },
-            { field: "published_at", label: "Publicat la", type: "datetime" }
+            { field: "status", label: "Vizibilitate", type: "enum", options: { draft: "Ciorna", published: "Publicat" } },
+            { field: "published_at", label: "Data postarii", type: "datetime" }
         ],
         filters: [
             {
@@ -390,9 +428,16 @@ async function openBlogPostForm(id = null, table = null) {
         fields: BWBlog.buildPostFields(categories),
         submitLabel: id ? "Actualizeaza" : "Salveaza",
         onBeforeSubmit: (values, formInstance) => {
-            if (values.status === "published") {
-                const alreadyPublished = formInstance.record && formInstance.record.published_at;
-                values.published_at = alreadyPublished || new Date().toISOString();
+            if (values.published_at) {
+                // datetime-local value -> ISO; keep manually chosen dates
+                values.published_at = new Date(values.published_at).toISOString();
+            } else if (values.status === "published") {
+                values.published_at = (formInstance.record && formInstance.record.published_at)
+                    || new Date().toISOString();
+            }
+            if (!values.author) {
+                const fullName = currentUser && currentUser.user_metadata && currentUser.user_metadata.full_name;
+                values.author = fullName || "";
             }
             if (!formInstance.record && currentUser) {
                 values.author_id = currentUser.id;
