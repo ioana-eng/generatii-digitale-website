@@ -273,10 +273,15 @@ BEGIN
             'authenticated', 'authenticated', admin_email,
             crypt(admin_pass, gen_salt('bf')), now(),
             now(), now(),
-            '{"provider":"email","providers":["email"]}', '{}',
+            '{"provider":"email","providers":["email"],"role":"administrator"}', '{}',
             false, '', '', '', ''
         )
         RETURNING id INTO admin_id;
+    ELSE
+        -- Existing user: make sure the JWT carries the administrator role
+        UPDATE auth.users
+        SET raw_app_meta_data = raw_app_meta_data || '{"role":"administrator"}'
+        WHERE id = admin_id;
     END IF;
 
     INSERT INTO public.users (id, role, full_name)
