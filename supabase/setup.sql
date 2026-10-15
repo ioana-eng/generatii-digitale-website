@@ -226,10 +226,48 @@ CREATE POLICY "Images are publicly accessible"
     USING (bucket_id = 'images');
 
 -- ------------------------------------------
--- Done. Next steps:
--- 1. Create your admin user: Authentication -> Users -> Add user -> create user
--- 2. Grant the role by running (replace with your user's id from the Users list):
---    INSERT INTO public.users (id, role, full_name)
---    VALUES ('<user-uuid-from-authentication>', 'administrator', 'Numele Tau')
---    ON CONFLICT (id) DO UPDATE SET role = 'administrator';
+-- Admin user: generatii.digitale@gmail.com
+-- Creates the login user (if missing) and grants administrator role.
+-- IMPORTANT: replace the password below BEFORE running, then log in
+-- and change it again from the CMS (or ask for a password reset).
+-- ==========================================
+
+DO $$
+DECLARE
+    admin_email text := 'generatii.digitale@gmail.com';
+    admin_pass  text := 'SchimbaParola123!';  -- <-- CHANGE THIS
+    admin_name  text := 'Generații Digitale';
+    admin_id    uuid;
+BEGIN
+    -- Reuse the user if it already exists (e.g. created via dashboard)
+    SELECT id INTO admin_id FROM auth.users WHERE email = admin_email;
+
+    IF admin_id IS NULL THEN
+        INSERT INTO auth.users (
+            instance_id, id, aud, role, email,
+            encrypted_password, email_confirmed_at,
+            created_at, updated_at,
+            raw_app_meta_data, raw_user_meta_data,
+            is_super_admin, confirmation_token,
+            email_change, email_change_token_new, recovery_token
+        ) VALUES (
+            '00000000-0000-0000-0000-000000000000', gen_random_uuid(),
+            'authenticated', 'authenticated', admin_email,
+            crypt(admin_pass, gen_salt('bf')), now(),
+            now(), now(),
+            '{"provider":"email","providers":["email"]}', '{}',
+            false, '', '', '', ''
+        )
+        RETURNING id INTO admin_id;
+    END IF;
+
+    INSERT INTO public.users (id, role, full_name)
+    VALUES (admin_id, 'administrator', admin_name)
+    ON CONFLICT (id) DO UPDATE SET role = 'administrator';
+END $$;
+
+-- ==========================================
+-- Done. Login at /admin with:
+--   email: generatii.digitale@gmail.com
+--   password: the one you set above
 -- ==========================================
