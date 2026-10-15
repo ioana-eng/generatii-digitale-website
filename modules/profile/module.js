@@ -70,12 +70,12 @@ function renderInfoCard() {
         <h3 class="profile-card__title">Informatii cont</h3>
         <div class="profile-field">
             <span class="profile-field__label">Adresa de email</span>
-            <span class="profile-field__value">${escapeHtml(currentUser?.email || "—")}</span>
+            <span class="profile-field__value">${escapeHtmlProfile(currentUser?.email || "—")}</span>
             <p class="profile-field__hint">Emailul nu poate fi modificat din acest panou.</p>
         </div>
         <div class="profile-field">
             <span class="profile-field__label">Rol</span>
-            <span class="profile-field__value">${escapeHtml(roleLabel)}</span>
+            <span class="profile-field__value">${escapeHtmlProfile(roleLabel)}</span>
         </div>
     `, "profile-card");
 
@@ -158,7 +158,7 @@ function renderLogoutCard() {
     return card;
 }
 
-function escapeHtml(text) {
+function escapeHtmlProfile(text) {
     if (text === null || text === undefined) return "";
     return String(text)
         .replace(/&/g, "&amp;")

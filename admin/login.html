@@ -46,25 +46,25 @@
 </head>
 <body>
 
-<div class="login-card">
+<form class="login-card" id="login-form">
     <h1>BuildWithIF CMS</h1>
 
     <div class="bw-field">
         <label class="bw-label" for="email">Email</label>
-        <input class="bw-input" id="email" type="email" placeholder="email@example.com">
+        <input class="bw-input" id="email" type="email" placeholder="email@example.com" autocomplete="username">
     </div>
 
     <div class="bw-field">
         <label class="bw-label" for="password">Parolă</label>
-        <input class="bw-input" id="password" type="password" placeholder="••••••••">
+        <input class="bw-input" id="password" type="password" placeholder="••••••••" autocomplete="current-password">
     </div>
 
-    <button class="bw-btn bw-btn--primary bw-btn--full" id="login-btn">
+    <button class="bw-btn bw-btn--primary bw-btn--full" id="login-btn" type="submit">
         Autentificare
     </button>
 
     <p class="login-card__error" id="error"></p>
-</div>
+</form>
 
 <!-- Config -->
 <script src="../config/project.js"></script>
@@ -74,18 +74,22 @@
 <script src="../core/auth.js"></script>
 
 <script>
-    document.getElementById("login-btn").addEventListener("click", async () => {
+    document.getElementById("login-form").addEventListener("submit", async (event) => {
+        event.preventDefault();
+
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         const errorEl = document.getElementById("error");
 
         errorEl.textContent = "";
+        document.getElementById("login-btn").disabled = true;
 
         try {
             await login(email, password);
             window.location.href = "index.html";
         } catch (err) {
             errorEl.textContent = err.message || "Autentificare eșuată.";
+            document.getElementById("login-btn").disabled = false;
         }
     });
 </script>

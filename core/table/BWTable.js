@@ -251,7 +251,7 @@ class BWTable {
                     <button class="bw-btn bw-btn--sm bw-btn--ghost" data-page="prev" ${this.state.page <= 1 ? "disabled" : ""}><</button>
                     <span class="bw-table__page-indicator">Pagina ${this.state.page} / ${totalPages}</span>
                     <button class="bw-btn bw-btn--sm bw-btn--ghost" data-page="next" ${this.state.page >= totalPages ? "disabled" : ""}>></button>
-                    <button class="bw-btn bw-btn--sm bw-btn--ghost" data-page="last" ${this.state.page >= totalPages ? "disabled" : "">>|</button>
+                    <button class="bw-btn bw-btn--sm bw-btn--ghost" data-page="last" ${this.state.page >= totalPages ? "disabled" : ""}>>|</button>
                 </div>
                 <div class="bw-table__page-size">
                     <select class="bw-select bw-select--sm" data-page-size>${pageOptions}</select>

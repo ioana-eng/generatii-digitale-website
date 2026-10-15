@@ -5,7 +5,7 @@ Table Component
 ==========================================
 */
 
-function BWTable(options = {}) {
+function BWDataTable(options = {}) {
     const wrapper = document.createElement("div");
     wrapper.className = "bw-table-wrapper";
 

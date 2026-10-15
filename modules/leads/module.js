@@ -143,7 +143,7 @@ async function LeadsModule(container) {
 function registerLeadActions() {
     BWTableActions.register("viewLead", async ({ row }) => {
         const modal = BWModal({
-            title: `Lead de la ${escapeHtml(row.name || "—")}`,
+            title: `Lead de la ${escapeHtmlLeads(row.name || "—")}`,
             body: renderLeadDetails(row)
         });
         modal.open();
@@ -236,8 +236,8 @@ function renderLeadDetails(row) {
         const value = BWLeads.formatValue(row[field.name], field);
         return `
             <div class="leads-detail__row">
-                <span class="leads-detail__label">${escapeHtml(field.label || field.name)}</span>
-                <span class="leads-detail__value">${escapeHtml(value)}</span>
+                <span class="leads-detail__label">${escapeHtmlLeads(field.label || field.name)}</span>
+                <span class="leads-detail__value">${escapeHtmlLeads(value)}</span>
             </div>
         `;
     }).join("");
@@ -248,7 +248,7 @@ function renderLeadDetails(row) {
         ${fieldRows}
         <div class="leads-detail__row">
             <span class="leads-detail__label">Status</span>
-            <span class="leads-detail__value">${escapeHtml(statusLabel)}</span>
+            <span class="leads-detail__value">${escapeHtmlLeads(statusLabel)}</span>
         </div>
         <div class="leads-detail__row">
             <span class="leads-detail__label">Primit la</span>
@@ -257,7 +257,7 @@ function renderLeadDetails(row) {
         ${row.notes ? `
             <div class="leads-detail__row">
                 <span class="leads-detail__label">Note</span>
-                <span class="leads-detail__value leads-detail__value--notes">${escapeHtml(row.notes)}</span>
+                <span class="leads-detail__value leads-detail__value--notes">${escapeHtmlLeads(row.notes)}</span>
             </div>
         ` : ""}
     `;
@@ -343,7 +343,7 @@ function formatDateTime(value) {
     return date.toLocaleString("ro-RO");
 }
 
-function escapeHtml(text) {
+function escapeHtmlLeads(text) {
     if (text === null || text === undefined) return "";
     return String(text)
         .replace(/&/g, "&amp;")
