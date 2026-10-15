@@ -14,10 +14,9 @@ window.BW_PROJECT = {
     logo: null,
 
     // Supabase connection
-    // TODO(generatii.digitale): fill in the Supabase project URL, e.g. "https://xyzcompany.supabase.co"
-    supabaseUrl: "",
-    // TODO(generatii.digitale): fill in the Supabase anon (public) key from Project Settings -> API
-    supabaseAnonKey: "",
+    supabaseUrl: "https://uhxtntmffyujplmsckfa.supabase.co",
+    // Publishable (anon public) key — safe for client-side use, protected by RLS
+    supabaseAnonKey: "sb_publishable_lPe1mZ8gSqz_snWg1GrV0g_0LtKGJjw",
 
     // Storage
     storage: {
