@@ -1,6 +1,6 @@
 -- ==========================================
 -- BuildWithIF CMS - Generatii Digitale
--- Full database setup (run once)
+-- Full database setup (safe to re-run multiple times)
 -- Paste into: Supabase Dashboard -> SQL Editor -> New query
 -- Consolidates: docs/DATABASE-STANDARD.md + modules/blog/blog.sql
 -- ==========================================
@@ -9,7 +9,7 @@
 -- users (extends auth.users with roles)
 -- ------------------------------------------
 
-CREATE TABLE public.users (
+CREATE TABLE IF NOT EXISTS public.users (
     id uuid REFERENCES auth.users(id) PRIMARY KEY,
     role text DEFAULT 'client' CHECK (role IN ('administrator', 'editor', 'client')),
     full_name text,
@@ -20,15 +20,18 @@ CREATE TABLE public.users (
 
 ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Users can read own profile" ON public.users;
 CREATE POLICY "Users can read own profile"
     ON public.users FOR SELECT
     USING (auth.uid() = id);
 
+DROP POLICY IF EXISTS "Users can update own profile" ON public.users;
 CREATE POLICY "Users can update own profile"
     ON public.users FOR UPDATE
     USING (auth.uid() = id)
     WITH CHECK (auth.uid() = id);
 
+DROP POLICY IF EXISTS "Administrators can manage users" ON public.users;
 CREATE POLICY "Administrators can manage users"
     ON public.users FOR ALL
     USING (auth.jwt() ->> 'role' = 'administrator');
@@ -37,7 +40,7 @@ CREATE POLICY "Administrators can manage users"
 -- leads (website contact/offer forms)
 -- ------------------------------------------
 
-CREATE TABLE public.leads (
+CREATE TABLE IF NOT EXISTS public.leads (
     id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     name text NOT NULL,
     email text,
@@ -52,12 +55,14 @@ CREATE TABLE public.leads (
 
 ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Authenticated users can manage leads" ON public.leads;
 CREATE POLICY "Authenticated users can manage leads"
     ON public.leads FOR ALL
     USING (auth.role() = 'authenticated')
     WITH CHECK (auth.role() = 'authenticated');
 
 -- Public website (anon) can submit leads, but never read them
+DROP POLICY IF EXISTS "Anyone can submit a lead" ON public.leads;
 CREATE POLICY "Anyone can submit a lead"
     ON public.leads FOR INSERT
     WITH CHECK (auth.role() = 'anon');
@@ -66,7 +71,7 @@ CREATE POLICY "Anyone can submit a lead"
 -- gallery_categories
 -- ------------------------------------------
 
-CREATE TABLE public.gallery_categories (
+CREATE TABLE IF NOT EXISTS public.gallery_categories (
     id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     name text NOT NULL,
     created_at timestamptz DEFAULT now()
@@ -74,6 +79,7 @@ CREATE TABLE public.gallery_categories (
 
 ALTER TABLE public.gallery_categories ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Authenticated users can manage gallery categories" ON public.gallery_categories;
 CREATE POLICY "Authenticated users can manage gallery categories"
     ON public.gallery_categories FOR ALL
     USING (auth.role() = 'authenticated')
@@ -83,7 +89,7 @@ CREATE POLICY "Authenticated users can manage gallery categories"
 -- gallery_images
 -- ------------------------------------------
 
-CREATE TABLE public.gallery_images (
+CREATE TABLE IF NOT EXISTS public.gallery_images (
     id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     title text,
     path text NOT NULL,
@@ -94,12 +100,14 @@ CREATE TABLE public.gallery_images (
 
 ALTER TABLE public.gallery_images ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Authenticated users can manage gallery images" ON public.gallery_images;
 CREATE POLICY "Authenticated users can manage gallery images"
     ON public.gallery_images FOR ALL
     USING (auth.role() = 'authenticated')
     WITH CHECK (auth.role() = 'authenticated');
 
 -- Public site can read gallery
+DROP POLICY IF EXISTS "Anon users can read gallery images" ON public.gallery_images;
 CREATE POLICY "Anon users can read gallery images"
     ON public.gallery_images FOR SELECT
     USING (auth.role() = 'anon');
@@ -108,7 +116,7 @@ CREATE POLICY "Anon users can read gallery images"
 -- workshop_categories
 -- ------------------------------------------
 
-CREATE TABLE public.workshop_categories (
+CREATE TABLE IF NOT EXISTS public.workshop_categories (
     id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     name text NOT NULL,
     created_at timestamptz DEFAULT now()
@@ -116,6 +124,7 @@ CREATE TABLE public.workshop_categories (
 
 ALTER TABLE public.workshop_categories ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Authenticated users can manage workshop categories" ON public.workshop_categories;
 CREATE POLICY "Authenticated users can manage workshop categories"
     ON public.workshop_categories FOR ALL
     USING (auth.role() = 'authenticated')
@@ -125,7 +134,7 @@ CREATE POLICY "Authenticated users can manage workshop categories"
 -- workshops
 -- ------------------------------------------
 
-CREATE TABLE public.workshops (
+CREATE TABLE IF NOT EXISTS public.workshops (
     id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     title text NOT NULL,
     slug text UNIQUE,
@@ -138,12 +147,14 @@ CREATE TABLE public.workshops (
 
 ALTER TABLE public.workshops ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Authenticated users can manage workshops" ON public.workshops;
 CREATE POLICY "Authenticated users can manage workshops"
     ON public.workshops FOR ALL
     USING (auth.role() = 'authenticated')
     WITH CHECK (auth.role() = 'authenticated');
 
 -- Public site can read active workshops
+DROP POLICY IF EXISTS "Anon users can read active workshops" ON public.workshops;
 CREATE POLICY "Anon users can read active workshops"
     ON public.workshops FOR SELECT
     USING (auth.role() = 'anon' AND is_active = true);
@@ -152,7 +163,7 @@ CREATE POLICY "Anon users can read active workshops"
 -- blog_categories (from modules/blog/blog.sql)
 -- ------------------------------------------
 
-CREATE TABLE public.blog_categories (
+CREATE TABLE IF NOT EXISTS public.blog_categories (
     id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     name text NOT NULL,
     slug text UNIQUE,
@@ -163,11 +174,13 @@ CREATE TABLE public.blog_categories (
 
 ALTER TABLE public.blog_categories ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Authenticated users can manage blog categories" ON public.blog_categories;
 CREATE POLICY "Authenticated users can manage blog categories"
     ON public.blog_categories FOR ALL
     USING (auth.role() = 'authenticated')
     WITH CHECK (auth.role() = 'authenticated');
 
+DROP POLICY IF EXISTS "Anon users can read active blog categories" ON public.blog_categories;
 CREATE POLICY "Anon users can read active blog categories"
     ON public.blog_categories FOR SELECT
     USING (auth.role() = 'anon' AND is_active = true);
@@ -176,7 +189,7 @@ CREATE POLICY "Anon users can read active blog categories"
 -- blog_posts (from modules/blog/blog.sql)
 -- ------------------------------------------
 
-CREATE TABLE public.blog_posts (
+CREATE TABLE IF NOT EXISTS public.blog_posts (
     id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     title text NOT NULL,
     slug text UNIQUE NOT NULL,
@@ -193,17 +206,19 @@ CREATE TABLE public.blog_posts (
 
 ALTER TABLE public.blog_posts ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Authenticated users can manage blog posts" ON public.blog_posts;
 CREATE POLICY "Authenticated users can manage blog posts"
     ON public.blog_posts FOR ALL
     USING (auth.role() = 'authenticated')
     WITH CHECK (auth.role() = 'authenticated');
 
+DROP POLICY IF EXISTS "Anon users can read published blog posts" ON public.blog_posts;
 CREATE POLICY "Anon users can read published blog posts"
     ON public.blog_posts FOR SELECT
     USING (auth.role() = 'anon' AND status = 'published');
 
-CREATE INDEX blog_posts_status_idx ON public.blog_posts (status);
-CREATE INDEX blog_posts_published_at_idx ON public.blog_posts (published_at DESC);
+CREATE INDEX IF NOT EXISTS blog_posts_status_idx ON public.blog_posts (status);
+CREATE INDEX IF NOT EXISTS blog_posts_published_at_idx ON public.blog_posts (published_at DESC);
 
 -- ------------------------------------------
 -- Storage: public bucket "images"
@@ -213,14 +228,17 @@ INSERT INTO storage.buckets (id, name, public)
 VALUES ('images', 'images', true)
 ON CONFLICT (id) DO NOTHING;
 
+DROP POLICY IF EXISTS "Authenticated users can upload images" ON storage.objects;
 CREATE POLICY "Authenticated users can upload images"
     ON storage.objects FOR INSERT
     WITH CHECK (bucket_id = 'images' AND auth.role() = 'authenticated');
 
+DROP POLICY IF EXISTS "Authenticated users can delete images" ON storage.objects;
 CREATE POLICY "Authenticated users can delete images"
     ON storage.objects FOR DELETE
     USING (bucket_id = 'images' AND auth.role() = 'authenticated');
 
+DROP POLICY IF EXISTS "Images are publicly accessible" ON storage.objects;
 CREATE POLICY "Images are publicly accessible"
     ON storage.objects FOR SELECT
     USING (bucket_id = 'images');
