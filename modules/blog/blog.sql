@@ -68,3 +68,16 @@ CREATE POLICY "Anon users can read published blog posts"
 
 CREATE INDEX blog_posts_status_idx ON public.blog_posts (status);
 CREATE INDEX blog_posts_published_at_idx ON public.blog_posts (published_at DESC);
+
+-- ------------------------------------------
+-- Migration: columns missing from blog_posts tables created
+-- from an older schema version. Safe to re-run (idempotent).
+-- ------------------------------------------
+
+ALTER TABLE public.blog_posts
+    ADD COLUMN IF NOT EXISTS subtitle text,
+    ADD COLUMN IF NOT EXISTS author text,
+    ADD COLUMN IF NOT EXISTS meta_title text,
+    ADD COLUMN IF NOT EXISTS meta_description text;
+
+NOTIFY pgrst, 'reload schema';

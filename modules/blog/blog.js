@@ -64,7 +64,9 @@ const BWBlog = {
                 name: "slug",
                 type: "slug",
                 source: "title",
-                label: "Slug",
+                label: "URL articol",
+                placeholder: "ex: generatia-digitala-in-romania",
+                helpText: "Adresa articolului in site, generata automat din titlu.",
                 section: "Continut"
             },
             {
@@ -156,7 +158,9 @@ const BWBlog = {
                 name: "slug",
                 type: "slug",
                 source: "name",
-                label: "Slug",
+                label: "URL categorie",
+                placeholder: "ex: evenimente",
+                helpText: "Adresa categoriei in site, generata automat din nume.",
                 section: "Informatii generale"
             },
             {
@@ -380,7 +384,7 @@ async function renderBlogCategories(view) {
         table: BWBlog.categoriesTable(),
         columns: [
             { field: "name", label: "Nume", type: "text", width: "40%" },
-            { field: "slug", label: "Slug", type: "text" },
+            { field: "slug", label: "URL", type: "text" },
             { field: "is_active", label: "Activ", type: "boolean", trueLabel: "Da", falseLabel: "Nu" },
             { field: "created_at", label: "Data crearii", type: "date" }
         ],
@@ -428,6 +432,9 @@ async function openBlogPostForm(id = null, table = null) {
         fields: BWBlog.buildPostFields(categories),
         submitLabel: id ? "Actualizeaza" : "Salveaza",
         onBeforeSubmit: (values, formInstance) => {
+            if (!values.category_id) {
+                values.category_id = null;
+            }
             if (values.published_at) {
                 // datetime-local value -> ISO; keep manually chosen dates
                 values.published_at = new Date(values.published_at).toISOString();
@@ -459,7 +466,8 @@ async function openBlogPostForm(id = null, table = null) {
 
     modal = BWModal({
         title: id ? "Editeaza articol" : "Adauga articol",
-        body: form.render()
+        body: form.render(),
+        size: "lg"
     });
 
     modal.open();

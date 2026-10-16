@@ -11,6 +11,9 @@ function BWModal(options = {}) {
 
     const modal = document.createElement("div");
     modal.className = "bw-modal";
+    if (options.size) {
+        modal.classList.add(`bw-modal--${options.size}`);
+    }
 
     const header = document.createElement("div");
     header.className = "bw-modal__header";

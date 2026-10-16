@@ -27,6 +27,10 @@
     box-shadow: var(--shadow-modal);
 }
 
+.bw-modal--lg {
+    max-width: 900px;
+}
+
 .bw-modal__header {
     display: flex;
     align-items: center;
